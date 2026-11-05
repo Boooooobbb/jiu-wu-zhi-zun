@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#142d37">
+  <meta name="description" content="走进九五智尊的极岳营地，探索功能区，认识沿途的伙伴。">
+  <title>九五智尊 · 极岳营地</title>
+  <link rel="icon" type="image/png" href="assets/team-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app" id="app" data-view="home">
+    <header class="topbar">
+      <a class="brand" href="#start" id="home-button" aria-label="九五智尊，返回首页"><span class="brand-icon" aria-hidden="true"><img src="assets/team-logo.png" width="256" height="256" alt=""></span><span class="brand-text"><strong>九五智尊</strong><small>极岳营地</small></span></a>
+    </header>
+    <section class="home" id="start" aria-labelledby="home-title">
+      <div class="home-art" aria-hidden="true"><img class="home-wide" src="assets/home-wide.jpg" width="1672" height="941" alt="" fetchpriority="high"><img class="home-mobile" src="assets/home-mobile.jpg" width="1080" height="1920" alt=""></div>
+      <div class="home-shade" aria-hidden="true"></div>
+      <div class="home-content"><h1 id="home-title">山没有最后一座峰，<br>但每一次同行，<br>都能让原本不可抵达的地方，<br><span>成为新的起点。</span></h1><a class="enter-button" href="#camp" id="enter-camp">进入营地 <span aria-hidden="true">→</span></a></div>
+    </section>
+    <main class="camp" id="camp" aria-label="可探索的极岳营地">
+      <div class="map-viewport" id="map-viewport" tabindex="0" aria-label="营地地图，可拖动或使用方向键探索">
+        <div class="map-surface" id="map-surface">
+          <img class="map-image" src="assets/camp-map.png" width="1672" height="941" alt="极岳营地全景：知识角、工坊、营火、帐篷区和活动场沿山路分布，远处可见雪山" draggable="false">
+          <div class="moon-glow" aria-hidden="true"></div>
+          <div class="fire-glow" aria-hidden="true"></div>
+          <div class="spark spark-1" aria-hidden="true"></div><div class="spark spark-2" aria-hidden="true"></div><div class="spark spark-3" aria-hidden="true"></div>
+          <div class="member-layer" id="member-layer" aria-label="营地伙伴"></div>
+          <button class="camp-scroll" id="camp-scroll" type="button" aria-label="展开木凳上的卷轴"><img src="assets/rolled-scroll.png" alt="" draggable="false"></button>
+          <a class="knowledge-chest" href="https://kcnwq3jn71mo.feishu.cn/wiki/space/7703888732230798607?ccm_open_type=lark_wiki_spaceLink&amp;open_tab_from=wiki_home" target="_blank" rel="noopener noreferrer" aria-label="打开九五智尊飞书知识空间"><img src="assets/knowledge-chest.png" alt="" draggable="false"></a>
+          <button class="wenyu-stone" id="wenyu-stone" type="button" aria-label="查看山路旁的石头，问羽藏在后面" aria-expanded="false">
+            <span class="wenyu-peek" aria-hidden="true"><img src="assets/wenyu-figure.png" alt="" draggable="false"></span>
+            <img class="wenyu-rock" src="assets/wenyu-rock.png" alt="" draggable="false">
+          </button>
+        </div>
+      </div>
+    </main>
+    <dialog class="book-dialog" id="member-dialog" aria-labelledby="member-name">
+      <button class="book-close" id="dialog-close" type="button" aria-label="合上档案">×</button>
+      <div class="book-spread">
+        <section class="book-page book-page-left" aria-label="角色资料">
+          <div class="book-person"><img class="book-portrait" id="dialog-art" alt="" draggable="false"><div><p class="book-kicker">九五智尊 · 伙伴档案</p><h2 id="member-name"></h2><p class="book-role" id="member-role"></p></div></div>
+          <div class="book-rule"></div>
+          <dl class="book-facts"><div><dt>角色形象</dt><dd id="member-animal"></dd></div><div><dt>所在区域</dt><dd id="member-place"></dd></div><div><dt>关键词</dt><dd id="member-traits"></dd></div></dl>
+          <p class="book-page-number" id="member-number"></p>
+        </section>
+        <section class="book-page book-page-right" aria-label="角色介绍">
+          <p class="book-chapter">九五智尊 · 成员介绍</p><h3 id="member-heading"></h3>
+          <p class="book-lead" id="member-intro"></p><div class="book-story" id="member-story"></div>
+        </section>
+      </div>
+    </dialog>
+    <dialog class="book-dialog owl-dialog" id="owl-dialog" aria-labelledby="owl-name">
+      <button class="book-close" id="owl-close" type="button" aria-label="合上问羽的介绍">×</button>
+      <div class="book-spread">
+        <section class="book-page book-page-left" aria-label="问羽的资料">
+          <div class="book-person"><img class="book-portrait owl-portrait" src="assets/wenyu-avatar.png" alt="问羽的猫头鹰头像" draggable="false"><div><p class="book-kicker">极岳异闻 · 山路访客</p><h2 id="owl-name">问羽</h2><p class="book-role">极岳附近的猫头鹰哲学家</p></div></div>
+          <div class="book-rule"></div>
+          <dl class="book-facts"><div><dt>所在之处</dt><dd>极岳附近的山路</dd></div><div><dt>随身之物</dt><dd>写满问题与感悟的手稿</dd></div><div><dt>喜欢做的事</dt><dd>与旅人讨论登山的理由</dd></div></dl>
+          <p class="book-page-number">极岳异闻 / 问羽</p>
+        </section>
+        <section class="book-page book-page-right" aria-label="问羽的介绍">
+          <p class="book-chapter">山路旁的对话</p><h3>问羽的故事</h3>
+          <p class="owl-story">这位猫头鹰哲学家头戴叶冠，披着白袍，随身带着写满问题与感悟的手稿。他希望走遍各地布道，把自己学到的智慧讲给更多人听。如今，他来到极岳附近：每天都有怀着不同愿望的旅人从这里经过，他总能与他们聊上一程。</p>
+          <p class="owl-story">他喜欢在山路旁提问：“你为什么想登上极岳？”有人说为了寻找灵感，有人说想看看峰顶。猫头鹰会认真听完，再问：“如果途中发现了更珍贵的东西，你会认出它吗？”他会讲自己的见解，也愿意让旅人的经历改变自己的想法。到了晚上，他便借着月光，把当天听到的新故事写进手稿。</p>
+          <p class="owl-story">至于乾在峰顶吃叉烧包的传闻，有人怀疑最早就是从这位夜行的猫头鹰口中传出来的。每当被问起，他只会眨眨眼：“我确实飞得够高，也确实看得很清楚。至于该不该告诉乾——这又是另一个值得讨论的问题。”</p>
+        </section>
+      </div>
+    </dialog>
+    <dialog class="scroll-dialog" id="scroll-dialog" aria-label="展开的营地卷轴">
+      <button class="scroll-close" id="scroll-close" type="button" aria-label="合上卷轴">×</button>
+      <div class="scroll-flip">
+        <div class="scroll-sheet" id="scroll-sheet">
+          <div class="scroll-face scroll-front" id="scroll-front">
+            <img src="assets/unfurled-scroll.png" alt="展开的古画：云纹环绕极峰，神龙盘旋" draggable="false">
+          </div>
+          <section class="scroll-face scroll-back" id="scroll-back" aria-label="卷轴背面的传说设定" aria-hidden="true">
+            <div class="scroll-back-inner">
+              <p class="scroll-overline">极岳异闻 · 传说设定</p>
+              <h2>山与龙的约定</h2>
+              <div class="scroll-ornament" aria-hidden="true">✦</div>
+              <p>相传，极岳之巅曾有一条守望星月的青龙。它不为登顶者指路，只在迷雾最深时，替结伴而行的人点亮远处的营火。</p>
+              <p>有人说，那条山路会随着同行者的脚步悄悄延长。每抵达一处看似终点的高地，前方又会显出新的山影；而留在身后的光，便成了后来者的起点。</p>
+              <p class="scroll-placeholder">此处为传说设定占位文字，后续可替换为团队的正式故事。</p>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="scroll-actions"><button class="scroll-turn" id="scroll-turn" type="button" aria-pressed="false">翻到背面 <span aria-hidden="true">↻</span></button></div>
+    </dialog>
+  </div>
+</body>
+</html>
