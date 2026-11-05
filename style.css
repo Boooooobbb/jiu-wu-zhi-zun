@@ -28,9 +28,9 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 @media(max-width:700px){.home-shade{background:linear-gradient(180deg,rgba(9,28,42,.54),rgba(9,29,40,.5) 40%,rgba(9,29,40,.25) 72%,rgba(9,29,40,.35)),linear-gradient(90deg,rgba(8,28,37,.46),transparent 85%)}.home-content{width:100%;max-width:none;margin:0;padding:92px 23px 44px}.home h1{max-width:570px;margin-bottom:28px;font-size:clamp(31px,8.5vw,46px);line-height:1.32}.enter-button{min-height:47px;font-size:13px}}
 @media(max-width:700px){.home-art .home-wide{display:none}.home-art .home-mobile{display:block}}
 .app[data-view="camp"] .topbar{display:none}
-.app[data-view="home"] .topbar{height:116px}
-.brand{display:block;width:100px;height:100px;flex:none}.brand-logo{display:block;width:100%;height:100%;object-fit:contain}
-@media(max-width:600px){.app[data-view="home"] .topbar{height:94px}.brand{width:80px;height:80px}}
+.app[data-view="home"] .topbar{height:138px}
+.brand{display:block;width:124px;height:124px;flex:none;border-radius:50%;background:radial-gradient(circle,rgba(247,243,219,.4) 0%,rgba(187,224,207,.24) 43%,rgba(116,180,171,.1) 62%,transparent 76%)}.brand-logo{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:600px){.app[data-view="home"] .topbar{height:108px}.brand{width:94px;height:94px}}
 .app{min-height:0}
 .member-layer{position:absolute;inset:0;z-index:4;pointer-events:none}
 .member-figure{position:absolute;width:clamp(77px,6.7%,120px);aspect-ratio:4/5;border:0;padding:0;background:transparent;pointer-events:auto;transform:translate(-50%,-100%);transition:transform .22s ease}
