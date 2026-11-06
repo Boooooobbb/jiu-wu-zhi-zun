@@ -247,6 +247,10 @@
   });
   document.querySelector('#logo-close').addEventListener('click', () => logoDialog.close());
   logoDialog.addEventListener('click', event => { if (event.target === logoDialog) logoDialog.close(); });
+  document.querySelector('#camp-gramophone').addEventListener('click', event => {
+    const target = event.currentTarget.dataset.targetUrl.trim();
+    if (target) window.open(target, '_blank', 'noopener,noreferrer');
+  });
   addEventListener('popstate', () => setView(location.hash === '#camp' ? 'camp' : 'home'));
   addEventListener('resize', () => { if (app.dataset.view === 'camp') fitMap(); });
 
