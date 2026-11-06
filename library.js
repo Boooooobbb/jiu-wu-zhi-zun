@@ -65,12 +65,12 @@
     document.querySelector('#library-group').textContent = page.group || volume.title;
     document.querySelector('#library-page-title').textContent = page.title;
     content.replaceChildren();
+    if (page.table) content.append(renderTable(page.table));
     page.paragraphs.forEach(value => {
       const paragraph = document.createElement('p');
       paragraph.textContent = value;
       content.append(paragraph);
     });
-    if (page.table) content.append(renderTable(page.table));
     document.querySelector('#library-count').textContent = `${String(pageIndex + 1).padStart(2, '0')} / ${String(volume.pages.length).padStart(2, '0')}`;
     document.querySelector('#library-prev').disabled = pageIndex === 0;
     document.querySelector('#library-next').disabled = pageIndex === volume.pages.length - 1;
