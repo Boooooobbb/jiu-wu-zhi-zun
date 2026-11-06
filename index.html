@@ -7,8 +7,10 @@
   <meta name="description" content="走进九五智尊的极岳营地，探索功能区，认识沿途的伙伴。">
   <title>九五智尊 · 极岳营地</title>
   <link rel="icon" type="image/png" href="assets/brand-logo-v2.png">
-  <link rel="stylesheet" href="style.css?v=qian-20261106">
+  <link rel="stylesheet" href="style.css?v=library-20261106">
   <script src="app.js?v=qian-20261106" defer></script>
+  <script src="library-data.js?v=library-20261106" defer></script>
+  <script src="library.js?v=library-20261106" defer></script>
 </head>
 <body>
   <div class="app" id="app" data-view="home">
@@ -27,6 +29,7 @@
           <div class="moon-glow" aria-hidden="true"></div>
           <div class="fire-glow" aria-hidden="true"></div>
           <div class="spark spark-1" aria-hidden="true"></div><div class="spark spark-2" aria-hidden="true"></div><div class="spark spark-3" aria-hidden="true"></div>
+          <button class="library-shelf" id="library-shelf" type="button" aria-label="打开世界观资料库"><img src="assets/library-bookshelf.png" alt="" draggable="false"></button>
           <button class="qian-dragon" id="qian-dragon" type="button" aria-label="查看极岳守护者乾的档案"><img src="assets/qian-dragon.png" alt="" draggable="false"></button>
           <div class="member-layer" id="member-layer" aria-label="营地伙伴"></div>
           <button class="camp-scroll" id="camp-scroll" type="button" aria-label="展开木凳上的卷轴"><img src="assets/rolled-scroll.png" alt="" draggable="false"></button>
@@ -89,6 +92,28 @@
             <p>乾从未承认那是自己。只是每当有人提起这个传闻，他总会先问一句：“你们怎么知道是叉烧包？”</p>
           </div>
         </section>
+      </div>
+    </dialog>
+    <dialog class="book-dialog library-dialog" id="library-dialog" aria-label="九五智尊世界观资料库">
+      <button class="book-close" id="library-close" type="button" aria-label="合上资料库">×</button>
+      <nav class="library-tabs" aria-label="资料库卷册" role="tablist">
+        <button class="library-tab" id="library-tab-people" type="button" role="tab" aria-selected="true">人物志</button>
+        <button class="library-tab" id="library-tab-chronicle" type="button" role="tab" aria-selected="false">编年史</button>
+      </nav>
+      <div class="book-spread">
+        <section class="book-page book-page-left library-index-page" aria-label="资料库索引">
+          <p class="book-kicker">九五智尊 · 世界观资料库</p>
+          <h2 id="library-volume-title">人物志</h2>
+          <p class="library-index-caption">选择篇目，翻到对应书页</p>
+          <div class="book-rule"></div>
+          <nav class="library-index" id="library-index" aria-label="篇目索引"></nav>
+        </section>
+        <article class="book-page book-page-right library-reader" aria-label="资料库正文">
+          <p class="book-chapter" id="library-group"></p>
+          <h3 id="library-page-title"></h3>
+          <div class="library-page-content" id="library-page-content"></div>
+          <div class="library-pagination"><button id="library-prev" type="button" aria-label="上一页">← 上一页</button><span id="library-count"></span><button id="library-next" type="button" aria-label="下一页">下一页 →</button></div>
+        </article>
       </div>
     </dialog>
     <dialog class="scroll-dialog" id="scroll-dialog" aria-label="展开的营地卷轴">
