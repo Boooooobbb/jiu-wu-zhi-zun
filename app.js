@@ -132,7 +132,6 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'member-figure';
-    button.dataset.motion = `member-${member.id}`;
     button.style.left = member.x + '%';
     button.style.top = member.y + '%';
     button.setAttribute('aria-label', `打开${member.name}的档案`);
