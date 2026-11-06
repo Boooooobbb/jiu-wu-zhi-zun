@@ -60,13 +60,16 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .camp-scroll img{position:absolute;left:-14%;top:-14%;display:block;width:128%;height:128%;max-width:none;object-fit:contain;pointer-events:none;filter:drop-shadow(0 5px 5px rgba(27,30,25,.55))}
 .camp-scroll:hover,.camp-scroll:focus-visible{transform:translate(-50%,-55%) rotate(12deg) scale(1.1)}
 .camp-scroll:focus-visible{outline:2px solid #ffdc9c;outline-offset:3px;border-radius:10px}
-.wenyu-stone{position:absolute;z-index:7;left:44%;top:78%;width:clamp(130px,10%,180px);aspect-ratio:1;display:block;padding:0;border:0;background:transparent;transform:translate(-50%,-50%);cursor:pointer;touch-action:manipulation;transition:transform .2s ease}
-.wenyu-stone:hover,.wenyu-stone:focus-visible{transform:translate(-50%,-52%) scale(1.04)}
+.wenyu-scene{position:absolute;z-index:7;left:44%;top:78%;width:clamp(130px,10%,180px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
+.wenyu-stone{position:absolute;z-index:2;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer;pointer-events:auto;touch-action:manipulation;transition:transform .2s ease}
+.wenyu-stone:hover,.wenyu-stone:focus-visible{transform:translateY(-2%) scale(1.04)}
 .wenyu-stone:focus-visible{outline:2px solid #ffdc9c;outline-offset:2px;border-radius:50%}
 .wenyu-rock{position:absolute;z-index:2;top:-2%;left:-14%;display:block;width:128%;height:128%;object-fit:contain;pointer-events:none;filter:saturate(.75) brightness(.68) sepia(.08) drop-shadow(0 9px 8px rgba(7,23,27,.55))}
-.wenyu-peek{position:absolute;z-index:1;top:-25%;left:50%;display:block;width:75%;height:75%;overflow:hidden;transform:translate(-50%,75%);opacity:0;pointer-events:none;transition:transform .58s cubic-bezier(.2,.9,.2,1),opacity .2s ease}
-.wenyu-peek img{display:block;width:100%;height:auto;filter:saturate(.78) brightness(.82) drop-shadow(0 5px 5px rgba(10,25,31,.35))}
-.wenyu-stone.is-awake .wenyu-peek{transform:translate(-50%,0);opacity:1}
+.wenyu-owl{position:absolute;z-index:3;top:-33%;left:50%;display:block;width:78%;height:45%;overflow:hidden;padding:0;border:0;background:transparent;transform:translate(-50%,70%);opacity:0;pointer-events:none;cursor:pointer;touch-action:manipulation;transition:transform .58s cubic-bezier(.2,.9,.2,1),opacity .2s ease}
+.wenyu-owl img{display:block;width:100%;height:auto;pointer-events:none;filter:saturate(.78) brightness(.82) drop-shadow(0 5px 5px rgba(10,25,31,.35))}
+.wenyu-scene.is-awake .wenyu-owl{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.wenyu-owl:hover,.wenyu-owl:focus-visible{filter:brightness(1.12)}
+.wenyu-owl:focus-visible{outline:2px solid #ffdc9c;outline-offset:3px;border-radius:40%}
 .scroll-dialog{width:min(92vw,calc(76dvh * 16 / 9),1200px);max-width:none;max-height:90dvh;margin:auto;padding:0;border:0;overflow:visible;background:transparent;filter:drop-shadow(0 28px 35px rgba(0,0,0,.52))}
 .scroll-dialog::backdrop{background:rgba(5,18,25,.8);backdrop-filter:blur(5px)}
 .scroll-flip{width:100%;aspect-ratio:16/9;perspective:1500px}

@@ -101,6 +101,8 @@
   const scrollDialog = document.querySelector('#scroll-dialog');
   const owlDialog = document.querySelector('#owl-dialog');
   const owlStone = document.querySelector('#wenyu-stone');
+  const owlScene = document.querySelector('#wenyu-scene');
+  const owlFigure = document.querySelector('#wenyu-owl');
   const qianDialog = document.querySelector('#qian-dialog');
   const logoDialog = document.querySelector('#logo-dialog');
   let firstLayout = true;
@@ -169,22 +171,29 @@
   document.querySelector('#dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
   function hideOwl() {
-    owlStone.classList.remove('is-awake');
+    owlScene.classList.remove('is-awake');
     owlStone.setAttribute('aria-expanded', 'false');
     owlStone.setAttribute('aria-label', '查看山路旁的石头，问羽藏在后面');
+    owlFigure.setAttribute('aria-hidden', 'true');
+    owlFigure.tabIndex = -1;
   }
   owlStone.addEventListener('click', () => {
-    if (!owlStone.classList.contains('is-awake')) {
-      owlStone.classList.add('is-awake');
+    if (!owlScene.classList.contains('is-awake')) {
+      owlScene.classList.add('is-awake');
       owlStone.setAttribute('aria-expanded', 'true');
-      owlStone.setAttribute('aria-label', '问羽探出了头，点击查看介绍');
+      owlStone.setAttribute('aria-label', '点击石头让问羽缩回去');
+      owlFigure.setAttribute('aria-hidden', 'false');
+      owlFigure.tabIndex = 0;
       return;
     }
+    hideOwl();
+  });
+  owlFigure.addEventListener('click', () => {
+    if (!owlScene.classList.contains('is-awake')) return;
     owlDialog.showModal();
   });
   document.querySelector('#owl-close').addEventListener('click', () => owlDialog.close());
   owlDialog.addEventListener('click', event => { if (event.target === owlDialog) owlDialog.close(); });
-  owlDialog.addEventListener('close', hideOwl);
   document.querySelector('#qian-dragon').addEventListener('click', () => qianDialog.showModal());
   document.querySelector('#qian-close').addEventListener('click', () => qianDialog.close());
   qianDialog.addEventListener('click', event => { if (event.target === qianDialog) qianDialog.close(); });

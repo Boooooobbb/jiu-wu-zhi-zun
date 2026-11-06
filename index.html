@@ -7,8 +7,8 @@
   <meta name="description" content="走进九五智尊的极岳营地，探索功能区，认识沿途的伙伴。">
   <title>九五智尊 · 极岳营地</title>
   <link rel="icon" type="image/png" href="assets/brand-logo-v2.png">
-  <link rel="stylesheet" href="style.css?v=gramophone-20261106c">
-  <script src="app.js?v=gramophone-20261106" defer></script>
+  <link rel="stylesheet" href="style.css?v=wenyu-toggle-20261106">
+  <script src="app.js?v=wenyu-toggle-20261106" defer></script>
   <script src="library-data.js?v=library-20261106" defer></script>
   <script src="library.js?v=library-20261106b" defer></script>
 </head>
@@ -35,10 +35,10 @@
           <div class="member-layer" id="member-layer" aria-label="营地伙伴"></div>
           <button class="camp-scroll" id="camp-scroll" type="button" aria-label="展开木凳上的卷轴"><img src="assets/rolled-scroll.png" alt="" draggable="false"></button>
           <a class="knowledge-chest" href="https://kcnwq3jn71mo.feishu.cn/wiki/space/7703888732230798607?ccm_open_type=lark_wiki_spaceLink&amp;open_tab_from=wiki_home" target="_blank" rel="noopener noreferrer" aria-label="打开九五智尊飞书知识空间"><img src="assets/knowledge-chest.png" alt="" draggable="false"></a>
-          <button class="wenyu-stone" id="wenyu-stone" type="button" aria-label="查看山路旁的石头，问羽藏在后面" aria-expanded="false">
-            <span class="wenyu-peek" aria-hidden="true"><img src="assets/wenyu-figure.png" alt="" draggable="false"></span>
-            <img class="wenyu-rock" src="assets/wenyu-rock.png" alt="" draggable="false">
-          </button>
+          <div class="wenyu-scene" id="wenyu-scene">
+            <button class="wenyu-owl" id="wenyu-owl" type="button" aria-label="查看问羽的介绍" aria-hidden="true" tabindex="-1"><img src="assets/wenyu-figure.png" alt="" draggable="false"></button>
+            <button class="wenyu-stone" id="wenyu-stone" type="button" aria-label="查看山路旁的石头，问羽藏在后面" aria-controls="wenyu-owl" aria-expanded="false"><img class="wenyu-rock" src="assets/wenyu-rock.png" alt="" draggable="false"></button>
+          </div>
         </div>
       </div>
     </main>
