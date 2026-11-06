@@ -34,9 +34,9 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .app{min-height:0}
 .member-layer{position:absolute;inset:0;z-index:4;pointer-events:none}
 .library-shelf{position:absolute;z-index:3;left:31.5%;top:27%;display:block;width:clamp(96px,7%,125px);aspect-ratio:110/155;padding:0;border:0;background:transparent;transform:translate(-50%,-50%);cursor:pointer;touch-action:manipulation;transition:transform .22s ease}
-.library-shelf img{position:absolute;left:-50%;top:-27%;display:block;width:200%;height:auto;max-width:none;pointer-events:none;filter:saturate(.75) brightness(.84) drop-shadow(0 8px 7px rgba(18,31,25,.45))}
+.library-shelf img{position:absolute;left:-50%;top:-27%;display:block;width:200%;height:auto;max-width:none;pointer-events:none;filter:saturate(.94) brightness(1.06) drop-shadow(0 8px 7px rgba(18,31,25,.38))}
 .library-shelf:hover,.library-shelf:focus-visible{transform:translate(-50%,-53%) scale(1.06)}
-.library-shelf:hover img,.library-shelf:focus-visible img{filter:saturate(.9) brightness(.96) drop-shadow(0 9px 9px rgba(18,31,25,.55))}
+.library-shelf:hover img,.library-shelf:focus-visible img{filter:saturate(1.02) brightness(1.13) drop-shadow(0 9px 9px rgba(18,31,25,.48))}
 .library-shelf:focus-visible{outline:2px solid #ffdc9c;outline-offset:4px;border-radius:12px}
 .qian-dragon{position:absolute;z-index:3;left:71%;top:13%;display:block;width:clamp(150px,17%,285px);aspect-ratio:2.33;padding:0;border:0;background:transparent;transform:translate(-50%,-50%) rotate(-5deg);cursor:pointer;touch-action:manipulation;transition:transform .25s ease,filter .25s ease;filter:drop-shadow(0 8px 9px rgba(5,24,34,.4))}
 .qian-dragon img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
@@ -113,7 +113,7 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .qian-rumor{width:min(48%,205px);margin:18px auto 0;text-align:center}
 .qian-rumor img{display:block;width:100%;max-height:180px;object-fit:contain;filter:drop-shadow(0 7px 8px rgba(72,51,37,.25))}
 .qian-rumor figcaption{margin-top:2px;color:#8d7155;font-size:clamp(10px,.83vw,12px)}
-.library-tabs{position:absolute;z-index:4;top:17%;left:-42px;display:flex;flex-direction:column;gap:7px}
+.library-tabs{position:absolute;z-index:4;top:17%;left:8px;display:flex;flex-direction:column;gap:7px}
 .library-tab{min-height:94px;width:47px;padding:10px 8px;border:1px solid #bc9a69;border-right:0;border-radius:10px 0 0 10px;background:#caa876;color:#513b2b;box-shadow:-5px 5px 12px rgba(30,19,11,.21);font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;font-size:15px;font-weight:700;line-height:1.35;writing-mode:vertical-rl;letter-spacing:.12em}
 .library-tab[aria-selected="true"]{background:#f0d6aa;color:#443121;transform:translateX(-5px)}
 .library-tab:hover,.library-tab:focus-visible{background:#f3dbb2}
