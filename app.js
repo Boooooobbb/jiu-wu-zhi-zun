@@ -101,6 +101,7 @@
   const scrollDialog = document.querySelector('#scroll-dialog');
   const owlDialog = document.querySelector('#owl-dialog');
   const owlStone = document.querySelector('#wenyu-stone');
+  const qianDialog = document.querySelector('#qian-dialog');
   let firstLayout = true;
   let drag = null;
 
@@ -183,6 +184,9 @@
   document.querySelector('#owl-close').addEventListener('click', () => owlDialog.close());
   owlDialog.addEventListener('click', event => { if (event.target === owlDialog) owlDialog.close(); });
   owlDialog.addEventListener('close', hideOwl);
+  document.querySelector('#qian-dragon').addEventListener('click', () => qianDialog.showModal());
+  document.querySelector('#qian-close').addEventListener('click', () => qianDialog.close());
+  qianDialog.addEventListener('click', event => { if (event.target === qianDialog) qianDialog.close(); });
   const scrollTurn = document.querySelector('#scroll-turn');
   const scrollFront = document.querySelector('#scroll-front');
   const scrollBack = document.querySelector('#scroll-back');
@@ -217,6 +221,7 @@
   function setView(view, changeHistory = false) {
     const next = view === 'camp' ? 'camp' : 'home';
     if (dialog.open) dialog.close();
+    if (qianDialog.open) qianDialog.close();
     if (scrollDialog.open) scrollDialog.close();
     if (owlDialog.open) owlDialog.close();
     if (next !== 'camp') hideOwl();

@@ -33,6 +33,10 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 @media(max-width:600px){.app[data-view="home"] .topbar{height:108px}.brand{width:94px;height:94px}}
 .app{min-height:0}
 .member-layer{position:absolute;inset:0;z-index:4;pointer-events:none}
+.qian-dragon{position:absolute;z-index:3;left:71%;top:13%;display:block;width:clamp(150px,17%,285px);aspect-ratio:2.33;padding:0;border:0;background:transparent;transform:translate(-50%,-50%) rotate(-5deg);cursor:pointer;touch-action:manipulation;transition:transform .25s ease,filter .25s ease;filter:drop-shadow(0 8px 9px rgba(5,24,34,.4))}
+.qian-dragon img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.qian-dragon:hover,.qian-dragon:focus-visible{transform:translate(-50%,-56%) rotate(-5deg) scale(1.07);filter:drop-shadow(0 9px 12px rgba(255,210,145,.4))}
+.qian-dragon:focus-visible{outline:2px solid #ffdc9c;outline-offset:4px;border-radius:50%}
 .member-figure{position:absolute;width:clamp(77px,6.7%,120px);aspect-ratio:4/5;border:0;padding:0;background:transparent;pointer-events:auto;transform:translate(-50%,-100%);transition:transform .22s ease}
 .member-figure img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;filter:saturate(.78) sepia(.06) brightness(.88) drop-shadow(0 8px 7px rgba(9,28,31,.6));transition:filter .22s ease}
 .member-figure:hover,.member-figure:focus-visible{transform:translate(-50%,-103%) scale(1.1)}
@@ -99,6 +103,12 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .owl-portrait{mix-blend-mode:multiply}
 .owl-dialog .book-page-right h3{margin-bottom:18px}
 .owl-story{margin:0 0 15px;color:#4f3b2a;font-size:clamp(12px,1.04vw,15px);line-height:1.85;letter-spacing:.015em}
+.qian-dialog .book-page-right h3{margin-bottom:18px}
+.qian-story{font-size:clamp(12px,1.04vw,15px);line-height:1.85;letter-spacing:.015em}
+.qian-rumor{width:min(48%,205px);margin:18px auto 0;text-align:center}
+.qian-rumor img{display:block;width:100%;max-height:180px;object-fit:contain;filter:drop-shadow(0 7px 8px rgba(72,51,37,.25))}
+.qian-rumor figcaption{margin-top:2px;color:#8d7155;font-size:clamp(10px,.83vw,12px)}
 @media(max-width:720px){.book-dialog{width:min(94vw,500px);height:min(88dvh,760px);aspect-ratio:auto;overflow-y:auto;border:10px solid #773d39;border-radius:22px;background-color:#ead7b6;background-image:linear-gradient(rgba(251,240,216,.85),rgba(248,232,201,.91)),var(--book-image);background-size:cover,auto 135%;background-position:center,27% center;box-shadow:0 24px 80px rgba(0,0,0,.45);filter:none}.book-close{position:sticky;float:right;top:7px;right:7px;margin:7px 7px -42px 0}.book-spread{position:relative;inset:auto;padding:28px 22px 40px}.book-page{position:relative;top:auto;left:auto;width:auto;height:auto;padding:0;overflow:visible}.book-page-right{margin-top:25px;padding-top:24px;border-top:1px solid rgba(102,73,46,.36)}.book-person{grid-template-columns:104px 1fr}.book-person h2{font-size:26px}.book-kicker,.book-chapter{font-size:10px}.book-facts dt{font-size:11px}.book-facts dd{font-size:14px}.book-page-right h3{margin:10px 0 16px;font-size:28px}.book-lead{font-size:18px}.book-story{font-size:15px}.book-note{font-size:11px}}
+@media(max-width:720px){.qian-rumor{width:145px;margin:16px 0 0}.qian-rumor img{max-height:160px}.qian-story{font-size:15px;line-height:1.8}}
 @media(max-width:720px){.owl-story{font-size:15px;line-height:1.8}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
