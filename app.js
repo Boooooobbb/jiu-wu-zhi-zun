@@ -102,6 +102,7 @@
   const owlDialog = document.querySelector('#owl-dialog');
   const owlStone = document.querySelector('#wenyu-stone');
   const qianDialog = document.querySelector('#qian-dialog');
+  const logoDialog = document.querySelector('#logo-dialog');
   let firstLayout = true;
   let drag = null;
 
@@ -224,6 +225,7 @@
     if (qianDialog.open) qianDialog.close();
     if (scrollDialog.open) scrollDialog.close();
     if (owlDialog.open) owlDialog.close();
+    if (logoDialog.open) logoDialog.close();
     if (next !== 'camp') hideOwl();
     app.dataset.view = next;
     home.setAttribute('aria-hidden', String(next !== 'home'));
@@ -241,8 +243,10 @@
   });
   document.querySelector('#home-button').addEventListener('click', event => {
     event.preventDefault();
-    setView('home', app.dataset.view !== 'home');
+    logoDialog.showModal();
   });
+  document.querySelector('#logo-close').addEventListener('click', () => logoDialog.close());
+  logoDialog.addEventListener('click', event => { if (event.target === logoDialog) logoDialog.close(); });
   addEventListener('popstate', () => setView(location.hash === '#camp' ? 'camp' : 'home'));
   addEventListener('resize', () => { if (app.dataset.view === 'camp') fitMap(); });
 

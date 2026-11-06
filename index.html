@@ -7,15 +7,15 @@
   <meta name="description" content="走进九五智尊的极岳营地，探索功能区，认识沿途的伙伴。">
   <title>九五智尊 · 极岳营地</title>
   <link rel="icon" type="image/png" href="assets/brand-logo-v2.png">
-  <link rel="stylesheet" href="style.css?v=library-tabs-20261106">
-  <script src="app.js?v=qian-20261106" defer></script>
+  <link rel="stylesheet" href="style.css?v=logo-story-20261106">
+  <script src="app.js?v=logo-story-20261106" defer></script>
   <script src="library-data.js?v=library-20261106" defer></script>
   <script src="library.js?v=library-20261106b" defer></script>
 </head>
 <body>
   <div class="app" id="app" data-view="home">
     <header class="topbar">
-      <a class="brand" href="#start" id="home-button" aria-label="九五智尊，返回首页"><img class="brand-logo" src="assets/brand-logo-v2.png" width="1254" height="1254" alt=""></a>
+      <a class="brand" href="#start" id="home-button" aria-label="查看九五智尊 Logo 与吉祥物设定" aria-haspopup="dialog"><img class="brand-logo" src="assets/brand-logo-v2.png" width="1254" height="1254" alt=""></a>
     </header>
     <section class="home" id="start" aria-labelledby="home-title">
       <div class="home-art" aria-hidden="true"><img class="home-wide" src="assets/home-wide.jpg" width="1672" height="941" alt="" fetchpriority="high"><img class="home-mobile" src="assets/home-mobile.jpg" width="1080" height="1920" alt=""></div>
@@ -41,6 +41,37 @@
         </div>
       </div>
     </main>
+    <dialog class="logo-dialog" id="logo-dialog" aria-labelledby="logo-dialog-title">
+      <button class="logo-close" id="logo-close" type="button" aria-label="关闭 Logo 介绍">×</button>
+      <div class="logo-paper">
+        <div class="logo-story">
+          <div class="logo-story-copy">
+            <p class="logo-story-eyebrow">团队图腾 · 标识与吉祥物</p>
+            <h2 id="logo-dialog-title">九五智尊 <span>Everest</span></h2>
+            <section class="logo-story-section" aria-labelledby="logo-name-title">
+              <h3 id="logo-name-title"><span>01</span> 名字的寓意</h3>
+              <p>Everest 意为世界最高峰，以巅峰意象呼应“九五，飞龙在天”的至高意象，象征不断攀登、树立标杆。</p>
+            </section>
+            <section class="logo-story-section" aria-labelledby="logo-design-title">
+              <h3 id="logo-design-title"><span>02</span> 龙首的寓意</h3>
+              <p>在《易经》中，“九五，飞龙在天”代表鼎盛与巅峰。Logo 以龙首为形象，整体轮廓既与数字“9”相似，也与数字“5”相似，呼应“九五”。</p>
+            </section>
+            <section class="logo-story-section logo-color-section" aria-labelledby="logo-color-title">
+              <h3 id="logo-color-title"><span>03</span> 色彩语言</h3>
+              <p><i class="logo-swatch navy" aria-hidden="true"></i><strong>海军蓝</strong> · 专业、理性、信任感</p>
+              <p><i class="logo-swatch peacock" aria-hidden="true"></i><strong>孔雀绿</strong> · 设计感、科技感、灵动感</p>
+            </section>
+          </div>
+          <div class="logo-story-art" aria-label="Logo 方案与吉祥物设定图">
+            <div class="logo-variants">
+              <figure><img src="assets/logo-dragon-classic.png" alt="龙首 Logo 方案一：深蓝与孔雀绿的盘龙造型" width="1254" height="1254"><figcaption>龙首标识 · 造型一</figcaption></figure>
+              <figure><img src="assets/logo-dragon-playful.png" alt="龙首 Logo 方案二：深蓝与孔雀绿的亲和造型" width="1254" height="1254"><figcaption>龙首标识 · 造型二</figcaption></figure>
+            </div>
+            <figure class="logo-mascot"><figcaption>吉祥物设定 <span>正面 · 背面 · 侧面</span></figcaption><img src="assets/logo-mascot-turnaround.png" alt="龙形吉祥物的正面、背面与侧面设定图" width="1280" height="640"></figure>
+          </div>
+        </div>
+      </div>
+    </dialog>
     <dialog class="book-dialog" id="member-dialog" aria-labelledby="member-name">
       <button class="book-close" id="dialog-close" type="button" aria-label="合上档案">×</button>
       <div class="book-spread">
