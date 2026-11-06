@@ -29,7 +29,7 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 @media(max-width:700px){.home-art .home-wide{display:none}.home-art .home-mobile{display:block}}
 .app[data-view="camp"] .topbar{display:none}
 .app[data-view="home"] .topbar{height:138px}
-.brand{display:block;width:124px;height:124px;flex:none;border-radius:50%;background:radial-gradient(circle,rgba(247,243,219,.4) 0%,rgba(187,224,207,.24) 43%,rgba(116,180,171,.1) 62%,transparent 76%)}.brand-logo{display:block;width:100%;height:100%;object-fit:contain}
+.brand{display:block;width:124px;height:124px;flex:none;border-radius:50%;background:radial-gradient(circle,rgba(255,227,163,.48) 0%,rgba(252,194,105,.24) 43%,rgba(235,155,67,.1) 62%,transparent 76%)}.brand-logo{display:block;width:100%;height:100%;object-fit:contain}
 @media(max-width:600px){.app[data-view="home"] .topbar{height:108px}.brand{width:94px;height:94px}}
 .app{min-height:0}
 .member-layer{position:absolute;inset:0;z-index:4;pointer-events:none}
