@@ -61,11 +61,11 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .camp-scroll:hover,.camp-scroll:focus-visible{transform:translate(-50%,-55%) rotate(12deg) scale(1.1)}
 .camp-scroll:focus-visible{outline:2px solid #ffdc9c;outline-offset:3px;border-radius:10px}
 .wenyu-scene{position:absolute;z-index:7;left:44%;top:78%;width:clamp(130px,10%,180px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
-.wenyu-stone{position:absolute;z-index:2;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer;pointer-events:auto;touch-action:manipulation;transition:transform .2s ease}
+.wenyu-stone{position:absolute;z-index:2;top:25%;left:0;display:block;width:100%;height:75%;padding:0;border:0;background:transparent;cursor:pointer;pointer-events:auto;touch-action:manipulation;transition:transform .2s ease}
 .wenyu-stone:hover,.wenyu-stone:focus-visible{transform:translateY(-2%) scale(1.04)}
 .wenyu-stone:focus-visible{outline:2px solid #ffdc9c;outline-offset:2px;border-radius:50%}
-.wenyu-rock{position:absolute;z-index:2;top:-2%;left:-14%;display:block;width:128%;height:128%;object-fit:contain;pointer-events:none;filter:saturate(.75) brightness(.68) sepia(.08) drop-shadow(0 9px 8px rgba(7,23,27,.55))}
-.wenyu-owl{position:absolute;z-index:3;top:-20%;left:50%;display:block;width:78%;height:45%;overflow:hidden;padding:0;border:0;background:transparent;transform:translate(-50%,70%);opacity:0;pointer-events:none;cursor:pointer;touch-action:manipulation;transition:transform .58s cubic-bezier(.2,.9,.2,1),opacity .2s ease}
+.wenyu-rock{position:absolute;z-index:2;top:-35%;left:-14%;display:block;width:128%;height:170%;object-fit:contain;pointer-events:none;filter:saturate(.75) brightness(.68) sepia(.08) drop-shadow(0 9px 8px rgba(7,23,27,.55))}
+.wenyu-owl{position:absolute;z-index:1;top:-20%;left:50%;display:block;width:78%;height:105%;overflow:visible;padding:0;border:0;background:transparent;transform:translate(-50%,70%);opacity:0;pointer-events:none;cursor:pointer;touch-action:manipulation;transition:transform .58s cubic-bezier(.2,.9,.2,1),opacity .2s ease}
 .wenyu-owl img{display:block;width:100%;height:auto;pointer-events:none;filter:saturate(.78) brightness(.82) drop-shadow(0 5px 5px rgba(10,25,31,.35))}
 .wenyu-scene.is-awake .wenyu-owl{transform:translate(-50%,0);opacity:1;pointer-events:auto}
 .wenyu-owl:hover,.wenyu-owl:focus-visible{filter:brightness(1.12)}
