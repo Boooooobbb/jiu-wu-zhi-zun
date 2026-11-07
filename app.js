@@ -260,7 +260,35 @@
 
   document.querySelector('#dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  const owlReducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  function stopOwlMotion() {
+    owlFigure.classList.remove('is-animating');
+  }
+  function playOwlMotion(waitForRise = false) {
+    if (!owlScene.classList.contains('is-awake') || owlFigure.classList.contains('is-animating')
+      || owlReducedMotion.matches || document.hidden || document.querySelector('dialog[open]')) return;
+    owlFigure.style.setProperty('--wenyu-motion-lead', waitForRise ? '.675s' : '0s');
+    // Flush a previous removal so a quick hide/reveal also starts a fresh gesture.
+    void owlFigure.offsetWidth;
+    owlFigure.classList.add('is-animating');
+  }
+  owlFigure.addEventListener('pointerenter', event => {
+    if (event.pointerType !== 'touch') playOwlMotion();
+  });
+  owlFigure.addEventListener('focus', () => {
+    if (owlFigure.matches(':focus-visible')) playOwlMotion();
+  });
+  owlFigure.addEventListener('animationend', event => {
+    if (event.animationName === 'wenyu-tilt') stopOwlMotion();
+  });
+  owlReducedMotion.addEventListener('change', () => {
+    if (owlReducedMotion.matches) stopOwlMotion();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopOwlMotion();
+  });
   function hideOwl() {
+    stopOwlMotion();
     owlScene.classList.remove('is-awake');
     owlStone.setAttribute('aria-expanded', 'false');
     owlStone.setAttribute('aria-label', '查看山路旁的石头，问羽藏在后面');
@@ -274,12 +302,14 @@
       owlStone.setAttribute('aria-label', '点击石头让问羽缩回去');
       owlFigure.setAttribute('aria-hidden', 'false');
       owlFigure.tabIndex = 0;
+      playOwlMotion(true);
       return;
     }
     hideOwl();
   });
   owlFigure.addEventListener('click', () => {
     if (!owlScene.classList.contains('is-awake')) return;
+    stopOwlMotion();
     owlDialog.showModal();
   });
   document.querySelector('#owl-close').addEventListener('click', () => owlDialog.close());
