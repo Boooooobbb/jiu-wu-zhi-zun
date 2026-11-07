@@ -66,10 +66,29 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .wenyu-stone:focus-visible{outline:2px solid #ffdc9c;outline-offset:2px;border-radius:50%}
 .wenyu-rock{position:absolute;z-index:2;top:-35%;left:-14%;display:block;width:128%;height:170%;object-fit:contain;pointer-events:none;filter:saturate(.75) brightness(.68) sepia(.08) drop-shadow(0 9px 8px rgba(7,23,27,.55))}
 .wenyu-owl{position:absolute;z-index:1;top:-20%;left:50%;display:block;width:78%;height:42%;overflow:visible;padding:0;border:0;background:transparent;transform:translate(-50%,70%);opacity:0;pointer-events:none;cursor:pointer;touch-action:manipulation;transition:transform .58s cubic-bezier(.2,.9,.2,1),opacity .2s ease}
-.wenyu-owl img{display:block;width:100%;height:auto;pointer-events:none;filter:saturate(.78) brightness(.82) drop-shadow(0 5px 5px rgba(10,25,31,.35))}
+.wenyu-pose{display:block;position:relative;pointer-events:none;filter:saturate(.78) brightness(.82) drop-shadow(0 5px 5px rgba(10,25,31,.35));transform-origin:52.27% 47.66%}
+.wenyu-pose img{display:block;width:100%;height:auto}
+.wenyu-eyelids{position:absolute;inset:0;display:block;width:100%;height:100%}
+.wenyu-half-lids,.wenyu-closed-lids{opacity:0}
 .wenyu-scene.is-awake .wenyu-owl{transform:translate(-50%,0);opacity:1;pointer-events:auto}
 .wenyu-owl:hover,.wenyu-owl:focus-visible{filter:brightness(1.12)}
 .wenyu-owl:focus-visible{outline:2px solid #ffdc9c;outline-offset:3px;border-radius:40%}
+@media(prefers-reduced-motion:no-preference){
+  .wenyu-scene.is-awake .wenyu-half-lids{animation:wenyu-half-blink .2s steps(1,end) .855s}
+  .wenyu-scene.is-awake .wenyu-closed-lids{animation:wenyu-close-blink .08s steps(1,end) .905s}
+  .wenyu-scene.is-awake .wenyu-pose{animation:wenyu-tilt 1.46s ease-in-out 1.1s}
+}
+@keyframes wenyu-half-blink{
+  0%,65%{opacity:1}
+  25%,100%{opacity:0}
+}
+@keyframes wenyu-close-blink{
+  from,to{opacity:1}
+}
+@keyframes wenyu-tilt{
+  from,to{transform:rotate(0deg)}
+  31.5%,63.7%{transform:rotate(7.5deg)}
+}
 .scroll-dialog{width:min(92vw,calc(76dvh * 16 / 9),1200px);max-width:none;max-height:90dvh;margin:auto;padding:0;border:0;overflow:visible;background:transparent;filter:drop-shadow(0 28px 35px rgba(0,0,0,.52))}
 .scroll-dialog::backdrop{background:rgba(5,18,25,.8);backdrop-filter:blur(5px)}
 .scroll-flip{width:100%;aspect-ratio:16/9;perspective:1500px}
