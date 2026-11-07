@@ -183,7 +183,6 @@
     const duration = 3200;
     let ready = false;
     let visible = false;
-    let played = false;
     let frame = 0;
 
     function ease(time, start, end) {
@@ -214,7 +213,6 @@
 
     function play() {
       if (frame || !canPlay()) return;
-      played = true;
       const started = performance.now();
       draw(0);
       button.classList.add('raccoon-motion-playing');
@@ -231,9 +229,7 @@
     }
 
     function sync() {
-      if (app.dataset.view !== 'camp') played = false;
       if (!canPlay()) stop();
-      else if (!played) play();
     }
 
     const intersection = new IntersectionObserver(([entry]) => {
