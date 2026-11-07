@@ -2,7 +2,7 @@
   const members = [
     {
       id: '01', name: '张诗敏', animal: '水獭', place: '知识角', role: 'AI 探索者', traits: '好奇 / 阅读 / AI 探索', x: 17, y: 47,
-      figure: 'assets/members/member-01-figure.png', avatar: 'assets/members/member-01-avatar-384.png',
+      figure: 'assets/characters/char-stella-full.webp', avatar: 'assets/avatars/avatar-stella.webp',
       intro: '这是一只聪明又好奇的水獭。圆圆的眼镜后，总有一双寻找新鲜事物的眼睛；怀里常抱着一本书，认真收集知识，也悄悄保存那些突然冒出来的灵感。',
       story: [
         '作为团队里的 AI 探索者，她尤其喜欢研究各种好玩、实用的 AI 工具。遇到新技术时，她会先凑近观察，再亲手试一试：有时和 AI 一起解决问题，有时把模糊的想法变成具体作品，也常常从一次小实验里发现新的可能。',
@@ -11,7 +11,7 @@
     },
     {
       id: '02', name: '曹嘉璇', alias: 'Wendy', animal: '兔子', place: '知识角', role: '活动手账规划者', traits: '倾听 / 创造 / 带来快乐', x: 29, y: 46,
-      figure: 'assets/members/member-02-figure.png', avatar: 'assets/members/member-02-avatar-384.png',
+      figure: 'assets/characters/char-wendy-full.webp', avatar: 'assets/avatars/avatar-wendy.webp',
       intro: '这是一只随身带着活动手账的小兔子。翻开手账，能找到集合时间、游戏点子，还有为不同伙伴准备的小惊喜。看见伙伴们笑起来，是她最喜欢的时刻。',
       story: [
         '她喜欢听不同的想法，遇见新鲜的观点，耳朵便会竖起来，再凑近一点问：“你为什么会这样想？”休息时，她会聊起喜欢的歌、兜风时的快乐，以及念念不忘的大海。',
@@ -22,7 +22,7 @@
     },
     {
       id: '03', name: '李子鑫', alias: 'Arnold', animal: '格劳尔大猩猩', place: '灵感工坊', role: '机械创作者', traits: '制造 / 动手 / 家乡梦想', x: 66, y: 46,
-      figure: 'assets/members/member-03-figure.png', avatar: 'assets/members/member-03-avatar-384.png',
+      figure: 'assets/characters/char-arnold-full.webp', avatar: 'assets/avatars/avatar-arnold.webp',
       intro: '据工坊里的消息，这是一只来自刚果金东部的格劳尔大猩猩。看起来有力量，笑起来很温柔。戴上护目镜就爱动手琢磨，也愿意停下来，认真听听伙伴的想法。',
       story: [
         '如今在上海交大学机械，心里装着家乡的制造业梦想：把资源变成产品，把点子变成现实。希望通过自己，让更多人认识刚果金，也愿意去那里走一走。',
@@ -32,7 +32,7 @@
     },
     {
       id: '04', name: '包庆涵', animal: '小熊猫', place: '灵感工坊', role: '奇思妙想实验者', traits: '观察 / 绘画 / 创造', x: 80, y: 47,
-      figure: 'assets/members/member-04-figure.png', avatar: 'assets/members/member-04-avatar-384.png',
+      figure: 'assets/characters/char-ryne-full.webp', avatar: 'assets/avatars/avatar-ryne.webp',
       intro: '据情报显示，包庆涵是一只安静的小熊猫。你可能会在某个不起眼的角落，意外发现它正默默观察着人类。',
       story: [
         '作为一只非典型小熊猫，它对一切有趣的事物都充满好奇。背上常年背着一个「奇思妙想包」，里面放着画笔、速写本，以及——据知情人士透露——无数个还没来得及实现的点子。偶尔，它会掏出纸笔，把眼前的世界和脑海里的奇怪念头画下来。',
@@ -41,7 +41,7 @@
     },
     {
       id: '05', name: '胡智溪', alias: 'ChangYo', animal: '小狗', place: '营火广场', role: 'AI 产品创造者', traits: 'Coding Agent / Dela / 开源', x: 41, y: 64,
-      figure: 'assets/members/member-05-figure.png', avatar: 'assets/members/member-05-avatar-384.png',
+      figure: 'assets/characters/char-changyo-full.webp', avatar: 'assets/avatars/avatar-changyo.webp',
       intro: '据情报显示，ChangYo 是一只对 AI 充满好奇的小狗。它有一只总爱翘起的耳朵，像是在向路过的人打招呼：“嘿，要不要来看看我刚做的新东西？”另一只耳朵则自然垂着，随时准备听听大家的想法。',
       story: [
         '自从接触了 coding agent，它便常常抱着终端捣鼓，想看看那些看似天马行空的念头，究竟能变成什么。两个月前，它给自己做了一个叫作 Dela 的小工具，没想到身边的朋友纷纷凑过来：“这个，我也想用！”于是，一只小狗的工作台旁渐渐多了一群伙伴，小工具也在大家的打磨下，长成了面向校园的 Agent 产品。',
@@ -50,7 +50,7 @@
     },
     {
       id: '06', name: '王雨泽', animal: '浣熊', place: '营火广场', role: '点子发明家', traits: '好奇 / 收集 / 动手', x: 59, y: 64,
-      figure: 'assets/members/member-06-figure.png', avatar: 'assets/members/member-06-avatar-384.png',
+      figure: 'assets/characters/char-wyz-full.webp', avatar: 'assets/avatars/avatar-wyz.webp',
       intro: '这是一只闲不太住的小浣熊。它对世界上的新鲜事总有一点额外的好奇，遇到没见过的东西，会先凑近看看，再伸出爪子拨弄两下。要是发现了什么有意思的地方，眼睛就会亮起来，转头招呼身边的伙伴：“快来，这个好像很好玩！”',
       story: [
         '它喜欢把一路捡来的小发现收集起来：一颗奇怪的螺丝、一句突然冒出来的话，或者一个暂时不知道能做什么的念头。有空的时候，它就把它们摊开，试着拼拼凑凑。有时折腾半天，只拼出一个会发出奇怪声音的小玩意儿；它也不着急，歪着脑袋想一会儿，又继续捣鼓。',
@@ -59,7 +59,7 @@
     },
     {
       id: '07', name: '咸金桐', animal: '雾蓝色猫头鹰', place: '帐篷区', role: '营地编年史记录者', traits: '倾听 / 记录 / 探索', x: 14, y: 83,
-      figure: 'assets/members/member-07-figure.png', avatar: 'assets/members/member-07-avatar-384.png',
+      figure: 'assets/characters/char-jiutian-full.webp', avatar: 'assets/avatars/avatar-jiutian.webp',
       intro: '据情报显示，这是一只雾蓝色的小猫头鹰。你可能会在天黑后的某个角落，意外发现她还睁着圆圆的大眼睛——别误会，她没在熬夜，猫头鹰的白天的确过得比较晚。',
       story: [
         '她对一切没见过的事物都充满好奇：新工具、新玩法、没走过的岔路，都要亲自凑上去试一试。',
@@ -71,7 +71,7 @@
     },
     {
       id: '08', name: '刘秋凡', animal: '小鸭子', place: '帐篷区', role: '行路的分享者', traits: '行走 / 记录 / 分享', x: 31, y: 82,
-      figure: 'assets/members/member-08-figure.png', avatar: 'assets/members/member-08-avatar-384.png',
+      figure: 'assets/characters/char-qiufan-full.webp', avatar: 'assets/avatars/avatar-qiufan.webp',
       intro: '据情报显示，刘秋凡是一只喜欢四处行走的小鸭子。它常戴着一顶缀有秋叶的帽子，背上行囊就出发，对路边不起眼的小事也充满好奇。',
       story: [
         '它似乎总有走不完的路，也不急着抵达哪里。遇到喜欢的风景，或者冒出什么有趣的念头，就悄悄记下来，留待以后慢慢回味。它尤其喜欢秋天——在它看来，每一次告别都藏着新的开始。',
@@ -80,7 +80,7 @@
     },
     {
       id: '09', name: '张欣', animal: '翼豹（海鸥与豹子）', place: '活动场', role: '乐观的翼豹', traits: '好奇 / 运动 / 助人', x: 79, y: 83,
-      figure: 'assets/members/member-09-figure.png', avatar: 'assets/members/member-09-avatar-384.png',
+      figure: 'assets/characters/char-joan-full.webp', avatar: 'assets/avatars/avatar-joan.webp',
       intro: '这是一只海鸥与豹子凑成的奇妙组合——我叫她“翼豹”。海鸥给了她一对爱往远处飞的翅膀，豹子给了她一身不服输的韧劲。',
       story: [
         '她最藏不住的，是一颗满格的好奇心。听见新鲜的想法会兴奋，凑近了问：“你为什么会这么想？”多问一句、多试一次，世界就多开一扇窗。',
@@ -218,7 +218,7 @@
     const oldHeight = surface.getBoundingClientRect().height || 1;
     const centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / oldWidth;
     const centerY = (viewport.scrollTop + viewport.clientHeight / 2) / oldHeight;
-    const width = Math.round(Math.max(viewport.clientWidth, viewport.clientHeight * 1672 / 941));
+    const width = Math.round(Math.max(viewport.clientWidth, viewport.clientHeight * 1920 / 964));
     surface.style.width = width + 'px';
     requestAnimationFrame(() => {
       const height = surface.getBoundingClientRect().height;
