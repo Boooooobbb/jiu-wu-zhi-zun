@@ -249,15 +249,12 @@
     button,
     id: memberRigs[button.dataset.memberId] ?? 'qian',
     visible: false,
-    played: false,
     replay: false,
     failed: false
   }]));
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const jobs = new Map();
   const duration = 3200;
-  let nextStart = 0;
-  let inCamp = false;
 
   function canAnimate() {
     return app.dataset.view === 'camp' && !document.hidden && !reducedMotion.matches
@@ -313,7 +310,6 @@
   function stop(character) {
     const job = jobs.get(character);
     if (!job) return;
-    clearTimeout(job.timer);
     cancelAnimationFrame(job.frame);
     jobs.delete(character);
     character.button.classList.remove('approved-motion-playing');
@@ -326,7 +322,6 @@
       pump();
       return;
     }
-    character.played = true;
     character.replay = false;
     const started = performance.now();
     rigs[character.id].draw(0, character.parts);
@@ -350,10 +345,7 @@
       character.ready ??= prepare(character);
       await character.ready;
       if (jobs.get(character) !== job) return;
-      const now = performance.now();
-      const startsAt = Math.max(nextStart, now);
-      nextStart = startsAt + 360;
-      job.timer = setTimeout(() => start(character, job), startsAt - now);
+      start(character, job);
     } catch {
       if (jobs.get(character) !== job) return;
       character.failed = true;
@@ -368,23 +360,19 @@
     for (const character of characters.values()) {
       if (jobs.size >= 2) break;
       if (!character.visible || character.failed || jobs.has(character)) continue;
-      if (!character.played || character.replay) schedule(character);
+      if (character.replay) schedule(character);
     }
   }
 
   function sync() {
-    const nextInCamp = app.dataset.view === 'camp';
-    if (inCamp && !nextInCamp) {
+    if (!canAnimate()) {
       for (const character of characters.values()) {
-        character.played = false;
         character.replay = false;
       }
     }
-    inCamp = nextInCamp;
     for (const character of jobs.keys()) {
       if (!canAnimate() || !character.visible) stop(character);
     }
-    if (!canAnimate()) nextStart = 0;
     pump();
   }
 
