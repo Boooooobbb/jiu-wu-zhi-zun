@@ -324,6 +324,7 @@
     scrollBack.setAttribute('aria-hidden', String(!reversed));
   }
   document.querySelector('#camp-scroll').addEventListener('click', () => { setScrollSide(false); scrollDialog.showModal(); });
+  document.querySelector('#scroll-enter').addEventListener('click', () => { window.location.href = 'comic/'; });
   scrollTurn.addEventListener('click', () => setScrollSide(!scrollDialog.classList.contains('is-reversed')));
   document.querySelector('#scroll-close').addEventListener('click', () => scrollDialog.close());
   scrollDialog.addEventListener('click', event => { if (event.target === scrollDialog) scrollDialog.close(); });
@@ -394,7 +395,5 @@
   viewport.addEventListener('pointerup', endDrag);
   viewport.addEventListener('pointercancel', endDrag);
 
-  // A shared link always begins at the cover, even if an older link retained #camp.
-  if (location.hash === '#camp') history.replaceState({ view: 'home' }, '', '#start');
-  setView('home');
+  setView(location.hash === '#camp' ? 'camp' : 'home');
 })();
