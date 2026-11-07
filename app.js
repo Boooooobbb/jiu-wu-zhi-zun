@@ -218,7 +218,7 @@
     const oldHeight = surface.getBoundingClientRect().height || 1;
     const centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / oldWidth;
     const centerY = (viewport.scrollTop + viewport.clientHeight / 2) / oldHeight;
-    const width = Math.round(Math.max(viewport.clientWidth, viewport.clientHeight * 1920 / 964));
+    const width = Math.round(Math.max(viewport.clientWidth, viewport.clientHeight * 1672 / 941));
     surface.style.width = width + 'px';
     requestAnimationFrame(() => {
       const height = surface.getBoundingClientRect().height;
