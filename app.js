@@ -167,7 +167,96 @@
       dialog.showModal();
     });
     layer.append(button);
+    if (member.id === '06') setupRaccoonMotion(button, figure);
   });
+
+  function setupRaccoonMotion(button, figure) {
+    if (!('IntersectionObserver' in window)) return;
+    const template = document.querySelector('#raccoon-motion-template');
+    if (!template) return;
+    const art = template.content.firstElementChild.cloneNode(true);
+    const source = art.querySelector('image');
+    const head = art.querySelector('.raccoon-head');
+    const robot = art.querySelector('.raccoon-robot');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const duration = 3200;
+    let ready = false;
+    let visible = false;
+    let played = false;
+    let frame = 0;
+
+    function ease(time, start, end) {
+      const position = Math.max(0, Math.min(1, (time - start) / (end - start)));
+      return position * position * (3 - 2 * position);
+    }
+
+    function draw(time) {
+      const lift = ease(time, 220, 870) - ease(time, 1770, 2590);
+      const bob = (ease(time, 840, 1040) - ease(time, 1500, 1850)) * Math.sin((time - 840) / 200);
+      const greeting = ease(time, 760, 1160) - ease(time, 1430, 1790);
+      const settle = ease(time, 2450, 2630) - ease(time, 2630, 2870);
+      const gaze = ease(time, 430, 1030) - ease(time, 1720, 2560);
+      robot.setAttribute('transform', `translate(${22 * lift} ${-119 * lift - 11 * bob + 7 * settle}) rotate(${13 * greeting} 700 276)`);
+      head.setAttribute('transform', `rotate(${-5.4 * gaze} 400 441)`);
+    }
+
+    function canPlay() {
+      return ready && visible && app.dataset.view === 'camp' && !document.hidden
+        && !reducedMotion.matches && !document.querySelector('dialog[open]');
+    }
+
+    function stop() {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      button.classList.remove('raccoon-motion-playing');
+    }
+
+    function play() {
+      if (frame || !canPlay()) return;
+      played = true;
+      const started = performance.now();
+      draw(0);
+      button.classList.add('raccoon-motion-playing');
+      function tick(now) {
+        const time = now - started;
+        if (time >= duration) {
+          stop();
+          return;
+        }
+        draw(time);
+        frame = requestAnimationFrame(tick);
+      }
+      frame = requestAnimationFrame(tick);
+    }
+
+    function sync() {
+      if (app.dataset.view !== 'camp') played = false;
+      if (!canPlay()) stop();
+      else if (!played) play();
+    }
+
+    const intersection = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio >= .5;
+      sync();
+    }, { root: viewport, threshold: .5 });
+    intersection.observe(button);
+    const changes = new MutationObserver(sync);
+    changes.observe(app, { attributeFilter: ['data-view'] });
+    for (const overlay of document.querySelectorAll('dialog')) {
+      changes.observe(overlay, { attributeFilter: ['open'] });
+    }
+    document.addEventListener('visibilitychange', sync);
+    reducedMotion.addEventListener('change', sync);
+    button.addEventListener('pointerenter', event => { if (event.pointerType !== 'touch') play(); });
+    button.addEventListener('focus', () => { if (button.matches(':focus-visible')) play(); });
+    source.addEventListener('load', () => {
+      ready = true;
+      sync();
+    }, { once: true });
+    button.append(art);
+    source.setAttribute('href', figure.src);
+  }
+
   document.querySelector('#dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
   function hideOwl() {

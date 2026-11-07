@@ -7,8 +7,8 @@
   <meta name="description" content="走进九五智尊的极岳营地，探索功能区，认识沿途的伙伴。">
   <title>九五智尊 · 极岳营地</title>
   <link rel="icon" type="image/png" href="assets/brand-logo-v2.png">
-  <link rel="stylesheet" href="style.css?v=wenyu-peek-1">
-  <script src="app.js?v=members-webp-20261107" defer></script>
+  <link rel="stylesheet" href="style.css?v=raccoon-motion-1">
+  <script src="app.js?v=raccoon-motion-1" defer></script>
   <script src="library-data.js?v=library-20261106" defer></script>
   <script src="library.js?v=library-20261106b" defer></script>
 </head>
@@ -33,6 +33,27 @@
           <button class="qian-dragon" id="qian-dragon" type="button" aria-label="查看极岳守护者乾的档案"><img src="assets/qian-dragon.png" alt="" draggable="false"></button>
           <button class="camp-gramophone" id="camp-gramophone" type="button" data-target-url="" aria-label="留声机，跳转链接待补充"><img src="assets/camp-gramophone.png" alt="" draggable="false"></button>
           <div class="member-layer" id="member-layer" aria-label="营地伙伴"></div>
+          <template id="raccoon-motion-template">
+            <svg class="raccoon-motion" viewBox="0 0 826 1024" aria-hidden="true" focusable="false">
+              <defs>
+                <image id="raccoon-source" width="826" height="1024"/>
+                <clipPath id="raccoon-body-region">
+                  <path clip-rule="evenodd" d="M0 0 H826 V1024 H0 Z
+                    M60 30 H618 V387 Q593 397 571 419 C516 447 450 447 393 443 C328 439 255 441 207 421 Q175 407 142 394 L60 378 Z
+                    M618 151 H801 V374 H618 Z"/>
+                </clipPath>
+                <clipPath id="raccoon-head-region">
+                  <path d="M60 30 H618 V406 Q597 418 573 438 C519 463 450 470 393 468 C328 465 255 461 204 438 Q173 422 141 413 L60 393 Z"/>
+                </clipPath>
+                <clipPath id="raccoon-robot-region">
+                  <rect x="618" y="151" width="183" height="223"/>
+                </clipPath>
+              </defs>
+              <use href="#raccoon-source" clip-path="url(#raccoon-body-region)"/>
+              <g class="raccoon-head"><use href="#raccoon-source" clip-path="url(#raccoon-head-region)"/></g>
+              <g class="raccoon-robot"><use href="#raccoon-source" clip-path="url(#raccoon-robot-region)"/></g>
+            </svg>
+          </template>
           <button class="camp-scroll" id="camp-scroll" type="button" aria-label="展开木凳上的卷轴"><img src="assets/rolled-scroll.png" alt="" draggable="false"></button>
           <a class="knowledge-chest" href="https://kcnwq3jn71mo.feishu.cn/wiki/space/7703888732230798607?ccm_open_type=lark_wiki_spaceLink&amp;open_tab_from=wiki_home" target="_blank" rel="noopener noreferrer" aria-label="打开九五智尊飞书知识空间"><img src="assets/knowledge-chest.png" alt="" draggable="false"></a>
           <div class="wenyu-scene" id="wenyu-scene">
