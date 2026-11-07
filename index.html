@@ -7,7 +7,7 @@
   <meta name="description" content="走进九五智尊的极岳营地，探索功能区，认识沿途的伙伴。">
   <title>九五智尊 · 极岳营地</title>
   <link rel="icon" type="image/png" href="assets/brand-logo-v2.png">
-  <link rel="stylesheet" href="style.css?v=archive-tabs-labels-20261106">
+  <link rel="stylesheet" href="style.css?v=wenyu-peek-1">
   <script src="app.js?v=members-webp-20261107" defer></script>
   <script src="library-data.js?v=library-20261106" defer></script>
   <script src="library.js?v=library-20261106b" defer></script>
@@ -36,7 +36,41 @@
           <button class="camp-scroll" id="camp-scroll" type="button" aria-label="展开木凳上的卷轴"><img src="assets/rolled-scroll.png" alt="" draggable="false"></button>
           <a class="knowledge-chest" href="https://kcnwq3jn71mo.feishu.cn/wiki/space/7703888732230798607?ccm_open_type=lark_wiki_spaceLink&amp;open_tab_from=wiki_home" target="_blank" rel="noopener noreferrer" aria-label="打开九五智尊飞书知识空间"><img src="assets/knowledge-chest.png" alt="" draggable="false"></a>
           <div class="wenyu-scene" id="wenyu-scene">
-            <button class="wenyu-owl" id="wenyu-owl" type="button" aria-label="查看问羽的介绍" aria-hidden="true" tabindex="-1"><img src="assets/wenyu-figure.png" alt="" draggable="false"></button>
+            <button class="wenyu-owl" id="wenyu-owl" type="button" aria-label="查看问羽的介绍" aria-hidden="true" tabindex="-1">
+              <span class="wenyu-pose">
+                <img src="assets/wenyu-figure.png" alt="" draggable="false">
+                <svg class="wenyu-eyelids" viewBox="0 0 1033 1280" aria-hidden="true" focusable="false">
+                  <defs>
+                    <path id="wenyu-left-eye" d="M329 412 Q341 408 345 398 C356 373 377 360 405 362 C440 362 469 387 482 415 C494 442 493 472 478 490 C464 506 433 508 407 504 C375 500 348 481 339 455 C335 441 334 427 336 420 Z"/>
+                    <path id="wenyu-right-eye" d="M584 424 C583 394 592 368 608 352 C624 336 647 332 668 335 C693 338 709 351 718 364 Q725 368 732 367 Q730 377 723 383 C729 411 720 439 706 457 C688 480 666 486 643 484 C615 483 590 462 585 441 Z"/>
+                    <clipPath id="wenyu-left-eye-clip"><use href="#wenyu-left-eye"/></clipPath>
+                    <clipPath id="wenyu-right-eye-clip"><use href="#wenyu-right-eye"/></clipPath>
+                    <radialGradient id="wenyu-left-lid" gradientUnits="userSpaceOnUse" cx="422" cy="423" r="94" gradientTransform="translate(0 25) scale(1 .94)">
+                      <stop stop-color="#fff0da"/><stop offset=".7" stop-color="#f0dfc6"/><stop offset="1" stop-color="#dfc4a3"/>
+                    </radialGradient>
+                    <radialGradient id="wenyu-right-lid" gradientUnits="userSpaceOnUse" cx="652" cy="400" r="96">
+                      <stop stop-color="#fff1db"/><stop offset=".7" stop-color="#f0dfc6"/><stop offset="1" stop-color="#dfc3a4"/>
+                    </radialGradient>
+                  </defs>
+                  <g class="wenyu-half-lids" stroke-linecap="round">
+                    <g clip-path="url(#wenyu-left-eye-clip)">
+                      <path d="M320 350 H502 V458 C463 437 395 420 331 437 Z" fill="url(#wenyu-left-lid)"/>
+                      <path d="M331 437 C395 420 463 437 496 455" fill="none" stroke="#152237" stroke-width="8"/>
+                    </g>
+                    <g clip-path="url(#wenyu-right-eye-clip)">
+                      <path d="M576 321 H740 V405 C695 390 621 400 581 438 Z" fill="url(#wenyu-right-lid)"/>
+                      <path d="M581 438 C621 400 695 390 730 405" fill="none" stroke="#152237" stroke-width="8"/>
+                    </g>
+                  </g>
+                  <g class="wenyu-closed-lids" stroke-linecap="round">
+                    <use href="#wenyu-left-eye" fill="url(#wenyu-left-lid)"/>
+                    <use href="#wenyu-right-eye" fill="url(#wenyu-right-lid)"/>
+                    <path d="M351 449 C371 470 401 484 434 481 C451 479 466 472 478 464 M596 440 C623 464 648 467 673 452 C689 442 700 428 707 417" fill="none" stroke="#513b35" stroke-opacity=".42" stroke-width="13"/>
+                    <path d="M351 447 C371 468 401 482 434 479 C451 477 466 470 478 462 M596 438 C623 462 648 465 673 450 C689 440 700 426 707 415" fill="none" stroke="#17263b" stroke-width="8"/>
+                  </g>
+                </svg>
+              </span>
+            </button>
             <button class="wenyu-stone" id="wenyu-stone" type="button" aria-label="查看山路旁的石头，问羽藏在后面" aria-controls="wenyu-owl" aria-expanded="false"><img class="wenyu-rock" src="assets/wenyu-rock.png" alt="" draggable="false"></button>
           </div>
         </div>
