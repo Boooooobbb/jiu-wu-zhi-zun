@@ -66,6 +66,9 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .camp-scroll img{position:absolute;left:-14%;top:-14%;display:block;width:128%;height:128%;max-width:none;object-fit:contain;pointer-events:none;filter:drop-shadow(0 5px 5px rgba(27,30,25,.55))}
 .camp-scroll:hover,.camp-scroll:focus-visible{transform:translate(-50%,-55%) rotate(12deg) scale(1.1)}
 .camp-scroll:focus-visible{outline:2px solid #ffdc9c;outline-offset:3px;border-radius:10px}
+.camp-scroll::before{content:"";position:absolute;z-index:-1;inset:-58%;border-radius:50%;background:radial-gradient(circle,rgba(255,216,154,.5),rgba(255,216,154,.18) 46%,transparent 70%);opacity:.52;pointer-events:none;animation:scroll-glow 3.6s ease-in-out infinite}
+.camp-scroll:hover::before,.camp-scroll:focus-visible::before{opacity:.82}
+@keyframes scroll-glow{0%,100%{transform:scale(.92);opacity:.4}50%{transform:scale(1.06);opacity:.72}}
 .wenyu-scene{position:absolute;z-index:7;left:44%;top:78%;width:clamp(130px,10%,180px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
 .wenyu-stone{position:absolute;z-index:2;top:25%;left:0;display:block;width:100%;height:75%;padding:0;border:0;background:transparent;cursor:pointer;pointer-events:auto;touch-action:manipulation;transition:transform .2s ease}
 .wenyu-stone:hover,.wenyu-stone:focus-visible{transform:translateY(-2%) scale(1.04)}
@@ -103,6 +106,9 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .scroll-dialog.is-reversed .scroll-sheet{transform:rotateY(180deg)}
 .scroll-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .scroll-front img{display:block;width:100%;height:100%;object-fit:contain;user-select:none}
+.scroll-enter{position:absolute;z-index:2;left:50%;bottom:7%;display:inline-flex;align-items:center;gap:10px;padding:10px 26px;border:1px solid rgba(116,78,50,.4);border-radius:999px;background:rgba(249,238,218,.9);color:#5a3b2b;box-shadow:0 6px 20px rgba(55,35,23,.18);font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;font-size:14px;font-weight:700;letter-spacing:.2em;transform:translateX(-50%);transition:background .2s,transform .2s}
+.scroll-enter:hover{background:#fff6e3;transform:translateX(-50%) translateY(-2px)}
+.scroll-enter span{font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-size:17px;font-weight:400;letter-spacing:0}
 .scroll-back{display:flex;align-items:center;justify-content:center;overflow:hidden;transform:rotateY(180deg);background:#e8d1ac url("assets/scroll-parchment.png") center/100% 100% no-repeat}
 .scroll-back-inner{position:relative;z-index:1;width:min(76%,750px);max-height:88%;overflow:auto;scrollbar-width:thin;scrollbar-color:#a7764d transparent;color:#4c3829;font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;text-align:center}
 .scroll-overline{margin:0 0 clamp(7px,1.3vw,19px);color:#925f3d;font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-size:clamp(10px,1vw,14px);font-weight:700;letter-spacing:.22em}
@@ -117,7 +123,7 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .scroll-close{position:absolute;z-index:1;top:-44px;right:0;display:grid;place-items:center;width:36px;height:36px;padding:0;border:1px solid rgba(255,241,214,.7);border-radius:50%;background:#6d3837;color:#fff2dc;font-family:system-ui,sans-serif;font-size:24px;line-height:1}
 .scroll-close:hover{background:#4e2528}
 @keyframes unfurl{from{opacity:.35;transform:scaleX(.12) scaleY(.82)}to{opacity:1;transform:scale(1)}}
-@media(max-width:700px){.scroll-dialog{width:min(94vw,550px)}.scroll-flip{height:min(69dvh,570px);aspect-ratio:auto}.scroll-back-inner{width:84%;max-height:84%;text-align:left}.scroll-back h2{text-align:center}.scroll-overline,.scroll-ornament,.scroll-placeholder{text-align:center}.scroll-back-inner>p:not(.scroll-overline){font-size:14px;line-height:1.8}.scroll-actions{padding-top:13px}.scroll-turn{min-height:40px;font-size:13px}}
+@media(max-width:700px){.scroll-dialog{width:min(94vw,550px)}.scroll-flip{height:min(69dvh,570px);aspect-ratio:auto}.scroll-back-inner{width:84%;max-height:84%;text-align:left}.scroll-back h2{text-align:center}.scroll-overline,.scroll-ornament,.scroll-placeholder{text-align:center}.scroll-back-inner>p:not(.scroll-overline){font-size:14px;line-height:1.8}.scroll-actions{padding-top:13px}.scroll-turn{min-height:40px;font-size:13px}.scroll-enter{bottom:6%;padding:9px 22px;font-size:13px}}
 .book-dialog{position:fixed;inset:0;width:min(96vw,calc(94dvh * 1.5),1320px);height:auto;aspect-ratio:1.5;max-width:none;max-height:none;margin:auto;padding:0;border:0;overflow:visible;background:transparent var(--book-image) center/140% 140% no-repeat;color:#473725;font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;filter:drop-shadow(0 28px 38px rgba(0,0,0,.48))}
 .book-dialog::backdrop{background:rgba(5,18,25,.76);backdrop-filter:blur(6px)}
 .book-close{position:absolute;z-index:3;top:2%;right:2%;display:grid;place-items:center;width:36px;height:36px;padding:0;border:1px solid rgba(255,241,214,.8);border-radius:50%;background:#6d3837;color:#fff2dc;font-family:system-ui,sans-serif;font-size:24px;line-height:1;box-shadow:0 3px 9px rgba(35,17,14,.28)}
