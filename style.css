@@ -48,10 +48,13 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .camp-gramophone:hover img,.camp-gramophone:focus-visible img{filter:saturate(.94) brightness(1.02) drop-shadow(0 11px 9px rgba(19,34,27,.56))}
 .camp-gramophone:focus-visible{outline:2px solid #ffdc9c;outline-offset:3px;border-radius:14px}
 .member-figure{position:absolute;width:clamp(77px,6.7%,120px);aspect-ratio:4/5;border:0;padding:0;background:transparent;pointer-events:auto;transform:translate(-50%,-100%);transition:transform .22s ease}
-.member-figure img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;filter:saturate(.78) sepia(.06) brightness(.88) drop-shadow(0 8px 7px rgba(9,28,31,.6));transition:filter .22s ease}
+.member-figure :is(img,.raccoon-motion){display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;filter:saturate(.78) sepia(.06) brightness(.88) drop-shadow(0 8px 7px rgba(9,28,31,.6));transition:filter .22s ease}
 .member-figure:hover,.member-figure:focus-visible{transform:translate(-50%,-103%) scale(1.1)}
-.member-figure:hover img,.member-figure:focus-visible img{filter:saturate(.95) brightness(.99) drop-shadow(0 10px 9px rgba(9,28,31,.62)) drop-shadow(0 0 10px rgba(255,208,133,.45))}
+.member-figure:is(:hover,:focus-visible) :is(img,.raccoon-motion){filter:saturate(.95) brightness(.99) drop-shadow(0 10px 9px rgba(9,28,31,.62)) drop-shadow(0 0 10px rgba(255,208,133,.45))}
 .member-figure:focus-visible{outline:2px solid #ffdc9c;outline-offset:3px;border-radius:50%}
+.raccoon-motion{position:absolute;inset:0;visibility:hidden}
+.raccoon-motion-playing>.raccoon-motion{visibility:visible}
+.raccoon-motion-playing>img{visibility:hidden}
 .knowledge-chest{position:absolute;z-index:5;left:62%;top:70%;display:block;width:clamp(76px,6.7%,120px);aspect-ratio:1;transform:translate(-50%,-50%);cursor:pointer;touch-action:manipulation;transition:transform .22s ease}
 .knowledge-chest img{position:absolute;left:-50%;top:-50%;display:block;width:200%;height:200%;max-width:none;object-fit:contain;pointer-events:none;filter:drop-shadow(0 10px 9px rgba(22,32,25,.48))}
 .knowledge-chest:hover,.knowledge-chest:focus-visible{transform:translate(-50%,-55%) scale(1.08)}
