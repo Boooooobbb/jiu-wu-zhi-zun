@@ -9,17 +9,27 @@
   const rotate = (angle, x, y) => `rotate(${angle} ${x} ${y})`;
   const outline = 'M0 0 H1000 V1000 H0 Z';
 
-  function lids(eyes, colors) {
+  function lids(eyes, colors, hideInactive = false) {
     const paths = eyes.map((eye, i) => `
       <clipPath id="eye-clip-${i}"><path d="${eye.outline}"/></clipPath>`).join('');
-    const state = (id, shape) => `<g id="${id}" opacity="0" stroke-linecap="round">${eyes.map((eye, i) => {
+    const tones = eyes.map((eye, i) => eye.colors ? `<linearGradient id="lid-tone-${i}" x2="0" y2="1">
+      <stop stop-color="${eye.colors[0]}"/>${eye.hold ? `<stop offset="${eye.hold}" stop-color="${eye.colors[0]}"/>` : ''}<stop offset="1" stop-color="${eye.colors[1]}"/>
+      </linearGradient>` : '').join('');
+    const state = (id, shape) => `<g id="${id}" opacity="0"${hideInactive ? ' display="none"' : ''} stroke-linecap="round">${eyes.map((eye, i) => {
       const closed = shape === 'closed';
+      if (hideInactive) {
+        const fill = `url(#${eye.colors ? `lid-tone-${i}` : 'lid-tone'})`;
+        const skin = closed ? `<path d="${eye.outline}" fill="${fill}"/>`
+          : `<g clip-path="url(#eye-clip-${i})"><path d="${eye.halfFill}" fill="${fill}"/></g>`;
+        return `<g filter="url(#lid-feather)">${skin}</g>
+          <g clip-path="url(#eye-clip-${i})"><path d="${closed ? eye.closedLine : eye.halfLine}" fill="none" stroke="${colors[2]}" stroke-width="${eye.strokeWidth ?? 5.5}"/></g>`;
+      }
       return `<g clip-path="url(#eye-clip-${i})">
-        <path d="${closed ? eye.outline : eye.halfFill}" fill="url(#lid-tone)"/>
-        <path d="${closed ? eye.closedLine : eye.halfLine}" fill="none" stroke="${colors[2]}" stroke-width="${closed ? 7.5 : 6}"/>
+        <path d="${closed ? eye.outline : eye.halfFill}" fill="url(#${eye.colors ? `lid-tone-${i}` : 'lid-tone'})"/>
+        <path d="${closed ? eye.closedLine : eye.halfLine}" fill="none" stroke="${colors[2]}" stroke-width="${eye.strokeWidth ?? (closed ? 7.5 : 6)}"/>
       </g>`;
     }).join('')}</g>`;
-    return `<defs>${paths}<linearGradient id="lid-tone" x2="0" y2="1">
+    return `<defs>${paths}${tones}${hideInactive ? '<filter id="lid-feather" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="4.5"/></filter>' : ''}<linearGradient id="lid-tone" x2="0" y2="1">
       <stop stop-color="${colors[0]}"/><stop offset="1" stop-color="${colors[1]}"/>
       </linearGradient></defs>${state('half-lids', 'half')}${state('closed-lids', 'closed')}`;
   }
@@ -30,6 +40,10 @@
     const half = local >= 0 && local < timing[2] && !closed;
     parts['half-lids'].setAttribute('opacity', Number(half));
     parts['closed-lids'].setAttribute('opacity', Number(closed));
+    if (parts['half-lids'].hasAttribute('display')) {
+      parts['half-lids'].setAttribute('display', half ? 'inline' : 'none');
+      parts['closed-lids'].setAttribute('display', closed ? 'inline' : 'none');
+    }
   }
 
   const rigs = {
@@ -68,11 +82,25 @@
         cut: 'M533 125 H826 V330 L707 366 Q670 329 619 304 Q573 281 534 270Z',
         clip: 'M520 113 H845 V345 L703 387 Q662 351 608 323 Q568 298 521 286Z'
       }],
+      extras: lids([{
+        outline: 'M334 385 Q341 379 349 390 Q351 378 360 369 Q367 365 373 381 Q386 389 396 381 C422 371 455 376 477 392 C496 406 500 433 488 454 C473 477 443 482 413 475 C385 474 359 464 346 445 Q336 431 344 417 Q330 414 329 402 Q327 393 334 385Z',
+        halfFill: 'M323 359 H506 V433 Q423 410 323 432Z',
+        halfLine: 'M349 432 Q419 409 487 431',
+        closedLine: 'M349 431 Q413 453 483 433',
+        strokeWidth: 5.5
+      }, {
+        outline: 'M545 455 C553 430 579 418 607 420 C633 422 646 438 655 439 Q670 445 679 437 Q686 435 688 443 Q684 454 673 458 Q680 460 685 455 Q693 454 692 463 Q687 480 664 480 C656 499 643 508 623 510 C593 516 563 505 550 489 Q540 476 545 455Z',
+        halfFill: 'M534 408 H702 V475 Q619 451 534 476Z',
+        halfLine: 'M553 476 Q619 450 677 473',
+        closedLine: 'M552 473 Q608 494 668 474',
+        colors: ['#f5cdb6', '#f2c2ac'], strokeWidth: 5.5
+      }], ['#fad7c0', '#fbdac5', '#69432f'], true),
       draw(time, parts) {
         const left = gesture(time, 360, 705, 820, 1560) - .25 * gesture(time, 1440, 1660, 1670, 1950);
         const right = gesture(time, 620, 960, 1070, 1720) - .22 * gesture(time, 1630, 1850, 1860, 2120);
         parts['left-ear'].setAttribute('transform', rotate(-9.5 * left, 384, 285));
         parts['right-ear'].setAttribute('transform', rotate(8.5 * right, 650, 333));
+        blink(time, parts, 1080, [55, 140, 205]);
       }
     },
     arnold: {
@@ -125,7 +153,20 @@
           <circle cx="751" cy="576" r="11" fill="#bafff6"/>
           <circle cx="726" cy="619" r="7" fill="#c9fff9"/>
         </g>
-        <circle id="tap-light" cx="676" cy="619" r="15" fill="none" stroke="#b4fff2" stroke-width="3" opacity="0"/>`,
+        <circle id="tap-light" cx="676" cy="619" r="15" fill="none" stroke="#b4fff2" stroke-width="3" opacity="0"/>
+        ${lids([{
+          outline: 'M317 312 C314 285 333 263 361 255 C392 245 428 257 452 279 C478 300 482 328 466 349 C451 370 420 375 392 368 C361 368 332 354 321 335Z',
+          halfFill: 'M308 240 H490 V316 Q407 290 308 318Z',
+          halfLine: 'M329 316 Q400 292 464 319',
+          closedLine: 'M328 318 Q390 343 464 320',
+          colors: ['#c8793d', '#fbeede'], hold: .65, strokeWidth: 5.5
+        }, {
+          outline: 'M584 291 C581 263 594 238 617 226 C644 211 672 225 690 248 C708 272 709 301 695 323 C682 345 659 353 635 347 C608 342 587 321 584 291Z',
+          halfFill: 'M575 210 H718 V285 Q647 260 575 292Z',
+          halfLine: 'M594 292 Q649 261 695 286',
+          closedLine: 'M594 289 Q646 312 698 289',
+          colors: ['#d58543', '#f9e7d6'], hold: .65, strokeWidth: 5.5
+        }], ['#c8793d', '#fbeede', '#684021'], true)}`,
       draw(time, parts) {
         const twitch = gesture(time, 300, 530, 565, 1070) * Math.cos((time - 530) / 104);
         parts.ear.setAttribute('transform', rotate(15 * twitch, 652, 155));
@@ -135,6 +176,7 @@
         parts.glow.setAttribute('opacity', .65 * signal);
         parts['tap-light'].setAttribute('opacity', .8 * gesture(time, 1140, 1230, 1250, 1530));
         parts['tap-light'].setAttribute('r', 14 + 15 * ease(time, 1140, 1530));
+        blink(time, parts, 1510, [55, 145, 210]);
       }
     },
     jiutian: {
@@ -172,12 +214,25 @@
         cut: 'M177 44 H431 L408 143 Q376 182 348 196 L236 211 L174 171Z',
         clip: 'M165 38 H445 L422 156 Q391 199 351 211 L235 224 L162 181Z'
       }],
+      extras: lids([{
+        outline: 'M423 350 C424 326 445 307 473 301 C505 290 537 302 558 322 C578 340 582 362 568 381 C554 401 524 402 497 397 C466 400 438 386 427 369Z',
+        halfFill: 'M413 287 H589 V352 Q507 329 413 356Z',
+        halfLine: 'M433 355 Q505 329 565 353',
+        closedLine: 'M432 355 Q498 377 570 356', strokeWidth: 5.5
+      }, {
+        outline: 'M675 373 C675 350 691 330 715 325 C740 316 763 330 776 349 C790 371 791 396 775 413 C761 430 737 427 715 420 C693 416 674 397 675 373Z',
+        halfFill: 'M664 312 H798 V377 Q730 354 664 381Z',
+        halfLine: 'M685 380 Q733 353 777 379',
+        closedLine: 'M686 380 Q733 400 780 380',
+        colors: ['#f9d9a0', '#fbe6b6'], strokeWidth: 5.5
+      }], ['#f9dda5', '#fce7b7', '#684022'], true),
       draw(time, parts) {
         const step = gesture(time, 290, 940, 1060, 1820);
         const leaf = gesture(time, 390, 690, 1360, 2200) * Math.sin((time - 550) / 124);
         parts.boot.setAttribute('transform', rotate(-16 * step, 613, 741));
         parts.leaf.setAttribute('transform', rotate(12 * leaf, 343, 179));
         parts.whole.setAttribute('transform', rotate(-2.8 * step, 355, 895));
+        blink(time, parts, 1120, [55, 145, 210]);
       }
     },
     joan: {
