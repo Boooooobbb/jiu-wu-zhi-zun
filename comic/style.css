@@ -215,12 +215,12 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--gold); outline-
 
 .tick {
   position: absolute;
-  top: -4px;
-  width: 6px;
-  height: 6px;
+  top: -5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: rgba(247, 239, 226, .78);
-  box-shadow: 0 0 0 2px rgba(11, 17, 16, .42);
+  background: rgba(247, 239, 226, .92);
+  box-shadow: 0 0 0 1px rgba(11, 17, 16, .55), 0 0 6px rgba(247, 239, 226, .28);
   transform: translateX(-50%);
 }
 
