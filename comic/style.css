@@ -58,11 +58,22 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--gold); outline-
   opacity: 0;
   visibility: hidden;
   background: var(--ink);
-  transition: opacity 1.15s var(--ease), visibility 1.15s;
+  transition: opacity 1.6s var(--ease), visibility 1.6s;
 }
 
-.slide.is-active { opacity: 1; visibility: visible; z-index: 2; }
+.slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  animation: dissolve 1.6s var(--ease) both;
+}
+
 .slide.is-leaving { opacity: 1; visibility: visible; z-index: 1; }
+
+@keyframes dissolve {
+  from { opacity: 0; filter: blur(4px); }
+  to { opacity: 1; filter: blur(0); }
+}
 
 .art { position: absolute; inset: 0; overflow: hidden; }
 
@@ -77,11 +88,11 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--gold); outline-
   pointer-events: none;
 }
 
-.slide.is-active .art img { animation: drift var(--dur, 15s) ease-out both; }
+.slide.is-active .art img { animation: drift var(--dur, 15s) ease-in-out both; }
 
 @keyframes drift {
-  from { transform: scale(1.035); }
-  to { transform: scale(1.075) translate3d(-.7%, -.5%, 0); }
+  from { transform: scale(1.06) translate3d(-.7%, .15%, 0); }
+  to { transform: scale(1.06) translate3d(.7%, -.15%, 0); }
 }
 
 .slide::after {
@@ -196,6 +207,23 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--gold); outline-
   background: var(--gold);
 }
 
+.ticks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tick {
+  position: absolute;
+  top: -4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(247, 239, 226, .78);
+  box-shadow: 0 0 0 2px rgba(11, 17, 16, .42);
+  transform: translateX(-50%);
+}
+
 .count {
   color: rgba(247, 239, 226, .55);
   font-variant-numeric: tabular-nums;
@@ -246,6 +274,7 @@ button:focus-visible, a:focus-visible { outline: 1px solid var(--gold); outline-
 
 @media (prefers-reduced-motion: reduce) {
   .slide { transition: none; }
+  .slide.is-active { animation: none; }
   .slide.is-active .art img { animation: none; }
   .slide figcaption, .ui, .back { transition: none; }
   .slide figcaption { opacity: 1; transform: none; }

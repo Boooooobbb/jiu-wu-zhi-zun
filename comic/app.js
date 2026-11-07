@@ -3,6 +3,7 @@
   const slides = Array.from(document.querySelectorAll(".slide"));
   const fill = document.getElementById("fill");
   const progress = document.getElementById("progress");
+  const ticks = document.getElementById("ticks");
   const count = document.getElementById("count");
   const playBtn = document.getElementById("play");
   const prevBtn = document.getElementById("prev");
@@ -14,6 +15,15 @@
   const total = durations.reduce((sum, value) => sum + value, 0);
 
   slides.forEach((slide, i) => slide.style.setProperty("--dur", `${durations[i]}ms`));
+
+  let elapsedBefore = 0;
+  durations.slice(0, -1).forEach(duration => {
+    elapsedBefore += duration;
+    const tick = document.createElement("span");
+    tick.className = "tick";
+    tick.style.left = `${(elapsedBefore / total) * 100}%`;
+    ticks.appendChild(tick);
+  });
 
   let index = 0;
   let playing = true;
@@ -52,6 +62,16 @@
     const next = slides[(nextIndex + slides.length) % slides.length];
     const previous = slides.find(slide => slide.classList.contains("is-active"));
 
+    const nextImage = next.querySelector("img");
+    nextImage.style.transform = "";
+    nextImage.style.animation = "";
+
+    if (previous && previous !== next) {
+      const previousImage = previous.querySelector("img");
+      previousImage.style.transform = getComputedStyle(previousImage).transform;
+      previousImage.style.animation = "none";
+    }
+
     clearTimeout(leavingTimer);
     slides.forEach(slide => {
       if (slide !== next) slide.classList.remove("is-active");
@@ -61,7 +81,7 @@
 
     if (previous && previous !== next) {
       previous.classList.add("is-leaving");
-      leavingTimer = window.setTimeout(() => previous.classList.remove("is-leaving"), 1150);
+      leavingTimer = window.setTimeout(() => previous.classList.remove("is-leaving"), 1600);
     }
 
     index = slides.indexOf(next);
