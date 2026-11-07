@@ -80,9 +80,9 @@ button{font:inherit;cursor:pointer}a{color:inherit}::selection{background:#f5b86
 .wenyu-owl:hover,.wenyu-owl:focus-visible{filter:brightness(1.12)}
 .wenyu-owl:focus-visible{outline:2px solid #ffdc9c;outline-offset:3px;border-radius:40%}
 @media(prefers-reduced-motion:no-preference){
-  .wenyu-scene.is-awake .wenyu-half-lids{animation:wenyu-half-blink .2s steps(1,end) .855s}
-  .wenyu-scene.is-awake .wenyu-closed-lids{animation:wenyu-close-blink .08s steps(1,end) .905s}
-  .wenyu-scene.is-awake .wenyu-pose{animation:wenyu-tilt 1.46s ease-in-out 1.1s}
+  .wenyu-owl.is-animating .wenyu-half-lids{animation:wenyu-half-blink .2s steps(1,end) calc(var(--wenyu-motion-lead,0s) + .18s)}
+  .wenyu-owl.is-animating .wenyu-closed-lids{animation:wenyu-close-blink .08s steps(1,end) calc(var(--wenyu-motion-lead,0s) + .23s)}
+  .wenyu-owl.is-animating .wenyu-pose{animation:wenyu-tilt 1.46s ease-in-out calc(var(--wenyu-motion-lead,0s) + .425s)}
 }
 @keyframes wenyu-half-blink{
   0%,65%{opacity:1}
